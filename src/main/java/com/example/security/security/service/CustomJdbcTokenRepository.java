@@ -17,7 +17,7 @@ import java.util.Date;
  * @Date: 2022-03-08 22:46
  * @Description:
  */
-public class RJdbcTokenRepositoryImpl extends JdbcDaoSupport implements PersistentTokenRepository {
+public class CustomJdbcTokenRepository extends JdbcDaoSupport implements PersistentTokenRepository {
 
 
     public static final String CREATE_TABLE_SQL = "create table sys_logins (username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null)";
@@ -31,7 +31,7 @@ public class RJdbcTokenRepositoryImpl extends JdbcDaoSupport implements Persiste
     private String removeUserTokensSql = "delete from sys_logins where username = ?";
     private boolean createTableOnStartup;
 
-    public RJdbcTokenRepositoryImpl() {
+    public CustomJdbcTokenRepository() {
     }
 
     @Override
